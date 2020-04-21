@@ -1,0 +1,93 @@
+/**
+ * @author Jay
+ * @date 2020-01-01
+ * @description
+ */
+@item-height: 0.28rem;
+@icon-width: 0.12rem;
+@icon-color: #c1c1c1;
+
+.opt {
+  padding: 0.2rem 0.7rem;
+  display: flex;
+  align-items: center;
+
+  .pre,
+  .next {
+    width: @icon-width;
+    height: @icon-width;
+    display: block;
+    border-top: 1px solid @icon-color;
+    border-left: 1px solid @icon-color;
+    transform: rotate(-45deg);
+  }
+
+  .next {
+    transform: rotate(135deg);
+  }
+
+  .title {
+    font-size: 19px;
+    color: #000;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 16px;
+    margin: 0 0.3rem;
+  }
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 0.5rem;
+
+  .top-item {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 0.3rem;
+    align-items: center;
+    background: #ededed;
+    border: 1px solid #e5e5e5;
+    font-size: 15px;
+    color: #333;
+    letter-spacing: 0;
+    text-align: right;
+  }
+}
+
+.bottom {
+  display: flex;
+
+  .hour {
+    > div {
+      width: 0.5rem;
+      height: @item-height;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 13px;
+      color: #333;
+      letter-spacing: 0;
+      text-align: center;
+    }
+  }
+}
+
+.day {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.container {
+  border-top: 1px solid @icon-color;
+  border-left: 1px solid @icon-color;
+}
+
+.item {
+  height: @item-height;
+  border-right: 1px solid @icon-color;
+  border-bottom: 1px solid @icon-color;
+  width: 100%;
+}

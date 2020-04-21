@@ -1,0 +1,103 @@
+{
+  "name": "react-pc-init",
+  "version": "0.1.5",
+  "private": true,
+  "description": "react pc init",
+  "keywords": [
+    "react"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Jay",
+    "email": "jay.wang.scorpion@gmail.com",
+    "url": "https://scorpionjay.github.io/blog"
+  },
+  "scripts": {
+    "build": "npm run build:prod",
+    "build:prod": "cross-env NODE_ENV=production BUILD_ENV=prod webpack --config build/webpack.prod.config.js",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.dev.config.js",
+    "dll": "webpack --config build/webpack.dll.config.js -p --progress --profile",
+    "lint": "npm run lint:js & npm run lint:css ",
+    "lint:css": "stylelint --fix 'src/**/*.less'",
+    "lint:js": "eslint --fix src",
+    "prettier": "prettier --write  \"./**/*.{js,jsx,css,less,md,json}\"",
+    "sort": "npx sort-package-json",
+    "start": "npm run dev",
+    "test": "npm run lint",
+    "lint-staged": "lint-staged"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "src/**/*{js,jsx}": [
+      "prettier --write  \"./**/*.{js,jsx,css,less,md,json}\"",
+      "eslint --fix",
+      "git add ."
+    ]
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.8.4",
+    "antd": "^4.0.1",
+    "core-js": "^3.6.4",
+    "qiankun": "^2.0.2",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-intl-universal": "^2.2.2",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.1.2",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.6",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.8.6",
+    "@babel/preset-react": "^7.8.3",
+    "@babel/runtime-corejs3": "^7.8.4",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "add-asset-html-webpack-plugin": "^3.1.3",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-import": "^1.13.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "cross-env": "^7.0.1",
+    "css-loader": "^3.4.2",
+    "cssnano": "^4.1.10",
+    "eslint": "^6.8.0",
+    "eslint-loader": "^3.0.3",
+    "eslint-plugin-react": "^7.18.3",
+    "file-loader": "^5.1.0",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^4.2.3",
+    "less": "^3.11.1",
+    "less-loader": "^5.0.0",
+    "lint-staged": "^9.5.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "nodemon": "^2.0.2",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "postcss-pxtorem": "^5.1.1",
+    "prettier": "1.19.1",
+    "react-hot-loader": "4.12",
+    "redux-logger": "^3.0.6",
+    "rimraf": "^3.0.2",
+    "style-loader": "1.1.3",
+    "stylelint": "^13.2.0",
+    "stylelint-config-standard": "^20.0.0",
+    "terser-webpack-plugin": "^2.3.5",
+    "url-loader": "^3.0.0",
+    "webpack": "^4.42.0",
+    "webpack-bundle-analyzer": "^3.6.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3",
+    "webpack-merge": "^4.2.2",
+    "zip-webpack-plugin": "^3.0.0"
+  }
+}

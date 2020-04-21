@@ -1,0 +1,43 @@
+{
+  "code": 200,
+  "msg": "ok",
+  "data": [
+    {
+      "name": "Home",
+      "code": "home",
+      "link": "home"
+    },
+    {
+      "name": "Demo",
+      "code": "demo",
+      "link": "demo",
+      "children": [
+        {
+          "name": "Tabel",
+          "code": "tabel",
+          "link": "tabel"
+        },
+        {
+          "name": "TabelPage",
+          "code": "tabelPage",
+          "link": "tabelPage"
+        },
+        {
+          "name": "Upload",
+          "code": "upload",
+          "link": "upload"
+        },
+        {
+          "name": "Calendar",
+          "code": "calendar",
+          "link": "calendar"
+        },
+        {
+          "name": "User",
+          "code": "user",
+          "link": "user"
+        }
+      ]
+    }
+  ]
+}
