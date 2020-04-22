@@ -23,7 +23,8 @@ module.exports = merge(common, {
     library: `${packageName}-[name]`,
     libraryTarget: "umd",
     jsonpFunction: `webpackJsonp_${packageName}`,
-    publicPath: "https://m.shanghaim.net/micro/react/",
+    // publicPath: "https://m.shanghaim.net/micro/react/",
+    publicPath: "/micro/react/",
     filename: "js/[name].[hash:4].js",
     chunkFilename: "js/[name].[contenthash:4].js",
     path: path.resolve(__dirname, "../dist")

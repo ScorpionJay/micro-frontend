@@ -29,7 +29,8 @@ module.exports = merge(common, {
     chunkFilename: "js/[name].[hash:6].js",
     path: path.resolve(__dirname, "../dist"),
     // publicPath: "http://jay.shanghaim.net/micro/vue-app/"
-    publicPath: "https://m.shanghaim.net/micro/vue/"
+    // publicPath: "https://m.shanghaim.net/micro/vue/"
+    publicPath: "/micro/vue/"
   },
   module: {
     rules: [

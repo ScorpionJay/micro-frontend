@@ -59,7 +59,8 @@ registerMicroApps(
     {
       name: "react",
       // entry: "//localhost:9101",
-      entry: "https://m.shanghaim.net/micro/react/index.html",
+      // entry: "https://m.shanghaim.net/micro/react/index.html",
+      entry: "/micro/react/index.html",
       container: "#subapp-viewport",
       activeRule: "/react"
     },
@@ -67,7 +68,8 @@ registerMicroApps(
     {
       name: "vue",
       // entry: "//localhost:9102",
-      entry: "https://m.shanghaim.net/micro/vue/index.html",
+      // entry: "https://m.shanghaim.net/micro/vue/index.html",
+      entry: "/micro/vue/index.html",
       container: "#subapp-viewport",
       activeRule: "/vue"
     }
