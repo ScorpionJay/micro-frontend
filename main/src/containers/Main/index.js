@@ -5,7 +5,7 @@
  */
 /*eslint-disable no-unused-vars */
 import React, { useState, useEffect, Suspense, lazy } from "react";
-import { Layout, Modal } from "antd";
+import { Layout, Modal, Menu } from "antd";
 import { Switch, Route, Redirect } from "react-router-dom";
 import Loading from "Components/Loading";
 import { connect } from "react-redux";
@@ -17,7 +17,7 @@ import Request from "Utils/request";
 
 const { Header, Sider, Content } = Layout;
 import Head from "./component/Head";
-import Menu from "./component/Menu";
+// import Menu from "./component/Menu";
 import Bread from "./component/Bread";
 
 const Home = lazy(() => import(/* webpackChunkName: "Home" */ "../Home"));
@@ -31,7 +31,7 @@ function Main(props) {
 
   useEffect(() => {
     getMenu();
-    push("/react");
+    // push("/react");
   }, []);
 
   const getMenu = async () => {
@@ -72,7 +72,37 @@ function Main(props) {
         <Menu data={menu} />
       </Sider> */}
       <Layout>
-        <Header style={{ background: "#fff", padding: 0 }}>
+        <Header style={{ display: "flex", justifyContent: "space-between" }}>
+          {/* <div className="logo" /> */}
+          <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["0"]}>
+            <Menu.Item
+              key="0"
+              onClick={() => {
+                push("/");
+              }}
+            >
+              首页
+            </Menu.Item>
+            <Menu.Item
+              key="1"
+              onClick={() => {
+                push("/react");
+              }}
+            >
+              React
+            </Menu.Item>
+            <Menu.Item
+              key="2"
+              onClick={() => {
+                push("/vue");
+              }}
+            >
+              VUE
+            </Menu.Item>
+          </Menu>
+          <Head onToggle={fnToggle} collapsed={collapsed} onLogout={fnLogout} />
+        </Header>
+        {/* <Header style={{ background: "#fff", padding: 0 }}>
           <div style={{ display: "flex" }}>
             <div
               onClick={() => {
@@ -90,25 +120,17 @@ function Main(props) {
             </div>
             <Head onToggle={fnToggle} collapsed={collapsed} onLogout={fnLogout} />
           </div>
-        </Header>
+        </Header> */}
 
         {/* <Bread data={menu} /> */}
 
-        {/* <Content
-          style={{
-            margin: "0 12px",
-            padding: 24,
-            background: "#fff"
-          }}
-        >
-          <Suspense fallback={<Loading />}>
-            <Switch>
-              <Route path={`/`} component={Home} />
-              <Route path={`/demo`} component={Demo} />
-              <Redirect to={`/`} />
-            </Switch>
-          </Suspense>
-        </Content> */}
+        <Suspense fallback={<Loading />}>
+          <Switch>
+            <Route path={`/`} exact component={Home} />
+            {/* <Route path={`/demo`} component={Demo} /> */}
+            {/* <Redirect to={`/`} /> */}
+          </Switch>
+        </Suspense>
       </Layout>
     </Layout>
   );

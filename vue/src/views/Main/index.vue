@@ -40,6 +40,6 @@ export default {
 <style lang="less" scoped>
 .content {
   margin-left: 220px;
-  margin-top: 60px;
+  margin-top: 64px;
 }
 </style>

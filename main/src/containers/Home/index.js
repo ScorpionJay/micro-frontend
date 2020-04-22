@@ -9,7 +9,7 @@ class Home extends Component {
   render() {
     return (
       <div className="home" style={{ textAlign: "center" }}>
-        The answer to life, the universe, and everything!
+        <h1>这个是主应用的首页啊</h1>
       </div>
     );
   }

@@ -79,7 +79,7 @@ export default {
 .menu-container {
   position: fixed;
   left: 0;
-  top: 50px;
+  top: 64px;
   bottom: 0;
   width: 201px;
   // background-color: #eee;

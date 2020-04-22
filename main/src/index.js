@@ -56,12 +56,6 @@ render({ loading: true });
 
 registerMicroApps(
   [
-    // {
-    //   name: "react16",
-    //   entry: "//localhost:7100",
-    //   container: "#subapp-viewport",
-    //   activeRule: "/react16"
-    // }
     {
       name: "react",
       // entry: "//localhost:9101",
@@ -69,12 +63,7 @@ registerMicroApps(
       container: "#subapp-viewport",
       activeRule: "/react"
     },
-    // {
-    //   name: "react15",
-    //   entry: "//localhost:7102",
-    //   render,
-    //   activeRule: "/react15"
-    // },
+
     {
       name: "vue",
       // entry: "//localhost:9102",
@@ -82,18 +71,6 @@ registerMicroApps(
       container: "#subapp-viewport",
       activeRule: "/vue"
     }
-    // {
-    //   name: "angular9",
-    //   entry: "//localhost:7103",
-    //   container: "#subapp-viewport",
-    //   activeRule: "/angular9"
-    // },
-    // {
-    //   name: "purehtml",
-    //   entry: "//localhost:7104",
-    //   container: "#subapp-viewport",
-    //   activeRule: "/purehtml"
-    // }
   ],
   {
     beforeLoad: [
@@ -115,7 +92,7 @@ registerMicroApps(
 );
 
 const { onGlobalStateChange, setGlobalState } = initGlobalState({
-  user: "qiankun"
+  user: "admin"
 });
 
 onGlobalStateChange((value, prev) => console.log("[onGlobalStateChange - master]:", value, prev));

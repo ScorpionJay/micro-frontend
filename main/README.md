@@ -1,4 +1,4 @@
-# react-pc-init
+# main
 
 ## How to run
 
