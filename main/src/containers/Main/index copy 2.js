@@ -21,6 +21,7 @@ import Head from "./component/Head";
 import Bread from "./component/Bread";
 
 const Home = lazy(() => import(/* webpackChunkName: "Home" */ "../Home"));
+const Demo = lazy(() => import(/* webpackChunkName: "demo" */ "../Demo"));
 
 import Style from "./style";
 
@@ -71,9 +72,40 @@ function Main(props) {
         <Menu data={menu} />
       </Sider> */}
       <Layout>
-        <Header style={{ display: "flex", justifyContent: "space-between" }}>
+        <Header
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            background: "red",
+            height: "53px",
+            color: "#fff"
+          }}
+        >
           {/* <div className="logo" /> */}
-          <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["0"]}>
+          <div
+            onClick={() => {
+              push("/");
+            }}
+          >
+            首页
+          </div>
+
+          <div
+            onClick={() => {
+              push("/react");
+            }}
+          >
+            react
+          </div>
+
+          <div
+            onClick={() => {
+              push("/vue");
+            }}
+          >
+            vue
+          </div>
+          {/* <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["0"]}>
             <Menu.Item
               key="0"
               onClick={() => {
@@ -98,7 +130,7 @@ function Main(props) {
             >
               VUE
             </Menu.Item>
-          </Menu>
+          </Menu> */}
           <Head onToggle={fnToggle} collapsed={collapsed} onLogout={fnLogout} />
         </Header>
         {/* <Header style={{ background: "#fff", padding: 0 }}>

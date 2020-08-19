@@ -16,7 +16,7 @@ import { Session as Storage } from "Utils/storage";
 import Request from "Utils/request";
 
 const { Header, Sider, Content } = Layout;
-import Head from "./component/Head";
+// import Head from "./component/Head";
 import Menu from "./component/Menu";
 import Bread from "./component/Bread";
 

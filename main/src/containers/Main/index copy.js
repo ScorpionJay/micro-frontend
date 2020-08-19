@@ -21,6 +21,7 @@ import Head from "./component/Head";
 import Bread from "./component/Bread";
 
 const Home = lazy(() => import(/* webpackChunkName: "Home" */ "../Home"));
+const Demo = lazy(() => import(/* webpackChunkName: "demo" */ "../Demo"));
 
 import Style from "./style";
 

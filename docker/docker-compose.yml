@@ -2,9 +2,9 @@ version: "3"
 services:
   nginx:
     image: nginx:stable-alpine
-    container_name: docker-nginx
+    container_name: docker-nginx-micro
     ports:
-      - 9080:80
+      - 9081:80
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
       - ./log:/var/log/nginx

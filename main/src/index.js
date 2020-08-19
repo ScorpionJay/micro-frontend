@@ -61,6 +61,7 @@ registerMicroApps(
       // entry: "//localhost:9101",
       // entry: "https://m.shanghaim.net/micro/react/index.html",
       entry: "/micro/react/index.html",
+      // entry: "http://192.168.7.43:9101",
       container: "#subapp-viewport",
       activeRule: "/react"
     },
@@ -70,6 +71,7 @@ registerMicroApps(
       // entry: "//localhost:9102",
       // entry: "https://m.shanghaim.net/micro/vue/index.html",
       entry: "/micro/vue/index.html",
+      // entry: "http://192.168.7.43:9102",
       container: "#subapp-viewport",
       activeRule: "/vue"
     }
@@ -114,7 +116,8 @@ setGlobalState({
 /**
  * Step4 启动应用
  */
-start();
+// start({ sandbox: { strictStyleIsolation: true } });
+start({ sandbox: true });
 
 runAfterFirstMounted(() => {
   console.log("[MainApp] first app mounted");

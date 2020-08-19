@@ -11,7 +11,17 @@ import "./public-path";
 // import flexible from "Utils/rem";
 // flexible(window, document);
 
-ReactDOM.render(<App />, document.getElementById("root"));
+function render(props = {}) {
+  const { container } = props;
+  ReactDOM.render(
+    <App />,
+    container ? container.querySelector("#root") : document.querySelector("#root")
+  );
+}
+
+if (!window.__POWERED_BY_QIANKUN__) {
+  render();
+}
 
 /**
  * bootstrap 只会在微应用初始化的时候调用一次，下次微应用重新进入时会直接调用 mount 钩子，不会再重复触发 bootstrap。
@@ -25,15 +35,29 @@ export async function bootstrap() {
  * 应用每次进入都会调用 mount 方法，通常我们在这里触发应用的渲染方法
  */
 export async function mount(props) {
-  console.log(props);
-  ReactDOM.render(<App />, document.getElementById("root"));
+  // console.log("props>>>>", props.container);
+  render(props);
+  // const { container } = props;
+  // ReactDOM.render(
+  //   <App />,
+  //   container ? container.getElementById("root") : document.getElementById("root")
+  // );
+  // ReactDOM.render(<App />, document.getElementById(props.container.host.id));
 }
 
 /**
  * 应用每次 切出/卸载 会调用的方法，通常在这里我们会卸载微应用的应用实例
  */
-export async function unmount() {
-  ReactDOM.unmountComponentAtNode(document.getElementById("root"));
+export async function unmount(props) {
+  // const { container } = props;
+  // ReactDOM.unmountComponentAtNode(
+  //   container ? container.getElementById("root") : document.getElementById("root")
+  // );
+
+  const { container } = props;
+  ReactDOM.unmountComponentAtNode(
+    container ? container.querySelector("#root") : document.querySelector("#root")
+  );
 }
 
 /**

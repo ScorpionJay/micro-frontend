@@ -11,6 +11,8 @@ import "@/styles/index.less";
 import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
+let instance = null;
+
 import ElementUI, { Button, Select } from "element-ui/lib";
 import "element-ui/lib/theme-chalk/index.css";
 // Vue.component(Button.name, Button);
@@ -65,14 +67,18 @@ router.beforeEach((to, from, next) => {
 
 Vue.config.productionTip = false;
 
-new Vue({
-  router,
-  render: (h) => h(App)
-  // template: `
-  //   <div id="app">
-  //     <router-view class="view"></router-view>
-  //   </div>`
-}).$mount("#app");
+// new Vue({
+//   router,
+//   render: (h) => h(App)
+//   // template: `
+//   //   <div id="app">
+//   //     <router-view class="view"></router-view>
+//   //   </div>`
+// }).$mount("#app");
+
+// if (!window.__POWERED_BY_QIANKUN__) {
+//   render();
+// }
 
 /**
  * bootstrap 只会在微应用初始化的时候调用一次，下次微应用重新进入时会直接调用 mount 钩子，不会再重复触发 bootstrap。
@@ -86,23 +92,26 @@ export async function bootstrap() {
  * 应用每次进入都会调用 mount 方法，通常我们在这里触发应用的渲染方法
  */
 export async function mount(props) {
-  console.log(props);
+  console.log(props.container);
+  const { container } = props;
   //ReactDOM.render(<App />, document.getElementById("root"));
-  new Vue({
+  instance = new Vue({
     router,
     render: (h) => h(App)
     // template: `
     //   <div id="app">
     //     <router-view class="view"></router-view>
     //   </div>`
-  }).$mount("#app");
+  }).$mount(container ? container.querySelector("#app") : "#app");
 }
 
 /**
  * 应用每次 切出/卸载 会调用的方法，通常在这里我们会卸载微应用的应用实例
  */
 export async function unmount() {
-  // ReactDOM.unmountComponentAtNode(document.getElementById("root"));
+  instance.$destroy();
+  instance = null;
+  // router = null;
 }
 
 /**
